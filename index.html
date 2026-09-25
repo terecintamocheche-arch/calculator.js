@@ -1,0 +1,151 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #history {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h1>Calculator</h1>
+
+        <div class="inputs">
+            <input type="number" id="num1" placeholder="First number">
+            <input type="number" id="num2" placeholder="Second number">
+        </div>
+
+        <div>
+            <button onclick="performCalculation('+')">Add +</button>
+            <button onclick="performCalculation('-')">Subtract -</button>
+            <button onclick="performCalculation('*')">Multiply ×</button>
+            <button onclick="performCalculation('/')">Divide ÷</button>
+        </div>
+
+        <h2>Result</h2>
+        <p id="result">Your answer will appear here.</p>
+
+        <button onclick="showHistoryOnPage()">Show History</button>
+
+        <div id="history">
+            <h2>Calculation History</h2>
+            <p>No calculations yet.</p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+
+    <script>
+        function performCalculation(operator) {
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+
+            let answer;
+
+            if (operator === "+") {
+                answer = add(num1, num2);
+            } else if (operator === "-") {
+                answer = subtract(num1, num2);
+            } else if (operator === "*") {
+                answer = multiply(num1, num2);
+            } else if (operator === "/") {
+                answer = divide(num1, num2);
+            }
+
+            document.getElementById("result").textContent = answer;
+        }
+
+        function showHistoryOnPage() {
+            const historyDiv = document.getElementById("history");
+
+            if (history.length === 0) {
+                historyDiv.innerHTML = `
+                    <h2>Calculation History</h2>
+                    <p>No stored calculations.</p>
+                `;
+                return;
+            }
+
+            let historyHTML = "<h2>Calculation History</h2><ul>";
+
+            history.forEach((calculation) => {
+                const [num1, num2] = calculation.operands;
+
+                historyHTML += `
+                    <li>
+                        ${num1} ${calculation.operator} ${num2}
+                        = ${calculation.result}
+                    </li>
+                `;
+            });
+
+            historyHTML += "</ul>";
+
+            historyDiv.innerHTML = historyHTML;
+        }
+    </script>
+
+</body>
+</html>
+```
