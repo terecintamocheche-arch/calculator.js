@@ -9,3 +9,9 @@ function addToHistory(num1, operator, num2, result) {
         result: result
     });
 }
+// Addition
+function add(num1, num2) {
+    const result = num1 + num2;
+    addToHistory(num1, "+", num2, result);
+    return result;
+}
