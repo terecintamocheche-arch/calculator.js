@@ -22,3 +22,10 @@ function subtract(num1, num2) {
     addToHistory(num1, "-", num2, result);
     return result;
 }
+
+// Multiplication
+function multiply(num1, num2) {
+    const result = num1 * num2;
+    addToHistory(num1, "*", num2, result);
+    return result;
+}
