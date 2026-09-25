@@ -41,7 +41,7 @@ function divide(num1, num2) {
     return result;
 }
 
-/ Display calculation history
+// Display calculation history
 function displayHistory() {
     if (history.length === 0) {
         console.log("No stored calculations.");
@@ -58,3 +58,10 @@ function displayHistory() {
         );
     });
 }
+
+console.log(add(10, 5));
+console.log(subtract(10, 5));
+console.log(multiply(10, 5));
+console.log(divide(10, 5));
+
+displayHistory();
