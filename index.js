@@ -15,3 +15,10 @@ function add(num1, num2) {
     addToHistory(num1, "+", num2, result);
     return result;
 }
+
+// Subtraction
+function subtract(num1, num2) {
+    const result = num1 - num2;
+    addToHistory(num1, "-", num2, result);
+    return result;
+}
