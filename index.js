@@ -40,3 +40,21 @@ function divide(num1, num2) {
     addToHistory(num1, "/", num2, result);
     return result;
 }
+
+/ Display calculation history
+function displayHistory() {
+    if (history.length === 0) {
+        console.log("No stored calculations.");
+        return;
+    }
+
+    console.log("Calculation History:");
+
+    history.forEach((calculation, index) => {
+        const [num1, num2] = calculation.operands;
+
+        console.log(
+            `${index + 1}. ${num1} ${calculation.operator} ${num2} = ${calculation.result}`
+        );
+    });
+}
