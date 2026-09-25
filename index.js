@@ -29,3 +29,14 @@ function multiply(num1, num2) {
     addToHistory(num1, "*", num2, result);
     return result;
 }
+
+// Division
+function divide(num1, num2) {
+    if (num2 === 0) {
+        return "Cannot divide by zero";
+    }
+
+    const result = num1 / num2;
+    addToHistory(num1, "/", num2, result);
+    return result;
+}
