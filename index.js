@@ -1,2 +1,11 @@
 // Store all calculations
 const history = [];
+
+// Add a calculation to the history
+function addToHistory(num1, operator, num2, result) {
+    history.push({
+        operands: [num1, num2],
+        operator: operator,
+        result: result
+    });
+}
